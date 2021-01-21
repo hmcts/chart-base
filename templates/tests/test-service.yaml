@@ -1,0 +1,1 @@
+{{- template "hmcts.testservice.v1.tpl" . -}}

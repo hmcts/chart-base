@@ -1,0 +1,28 @@
+global:
+  tenantId: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
+  environment: aat
+  enableKeyVaults: true
+
+image: hmctspublic.azurecr.io/chart-nodejs/testapp
+replicas: 2
+useInterpodAntiAffinity: true
+ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
+livenessPath: /health/liveness
+imagePullPolicy: Always
+environment:
+  REFORM_TEAM: cnp
+  REFORM_SERVICE_NAME: rhubarb-frontend
+  REFORM_ENVIRONMENT: preview
+configmap:
+  VAR_A: VALUE_A
+  VAR_B: VALUE_B
+aadIdentityName: bsp
+keyVaults:
+  bulk-scan:
+    excludeEnvironmentSuffix: false
+    secrets:
+      - idam-client-secret
+      - s2s-secret
+additionalPathBasedRoutes:
+  "/test": "{{.Release.Name}}"
+
