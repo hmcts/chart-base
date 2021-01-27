@@ -1,3 +1,4 @@
+language: nodejs
 global:
   enableKeyVaults: true
 replicas: 2
