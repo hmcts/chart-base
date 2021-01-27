@@ -1,8 +1,6 @@
 language: java
-image: hmctspublic.azurecr.io/spring-boot/template
 replicas: 2
 useInterpodAntiAffinity: true
-ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
 imagePullPolicy: Always
 environment:
   REFORM_TEAM: cnp
@@ -20,7 +18,6 @@ secrets:
     disabled: true
 prometheus:
   enabled: true
-aadIdentityName: money-claims
 keyVaults:
   "cmc":
     excludeEnvironmentSuffix: false
@@ -32,8 +29,14 @@ keyVaults:
       - citizen-oauth-client-secret
       - citizen-draft-store-primary
       - citizen-cookie-encryption-key
-
-global:
-  tenantId: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
-  environment: aat
+global: 
   enableKeyVaults: true
+
+java:
+  #Adding mandatory fields to here to ensure the merge is working as expected.
+  image: hmctspublic.azurecr.io/spring-boot/template
+  ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
+  aadIdentityName: money-claims
+  global: 
+    tenantId: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
+    environment: aat  
