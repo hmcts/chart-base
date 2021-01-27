@@ -33,6 +33,7 @@ global:
   enableKeyVaults: true
 
 java:
+  applicationPort: 4550
   #Adding mandatory fields to here to ensure the merge is working as expected.
   image: hmctspublic.azurecr.io/spring-boot/template
   ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
