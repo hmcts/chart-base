@@ -22,9 +22,9 @@ language: java
 will override values from defaults with
 ```
 java:
-  -----
-  -----
-  -----
+  key1: value1
+  key2: value2
+  key3: value3
 ``` 
 
 ## Configuration defaults
