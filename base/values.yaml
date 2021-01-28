@@ -84,9 +84,9 @@ smoketestscron:
 functionaltestscron:
   enabled: false
   schedule: "30 0/6 * * *"
-  
 
-java: 
+#java Overrides
+java:
   memoryRequests: '512Mi'
   cpuRequests: '250m'
   memoryLimits: '2048Mi'
@@ -98,5 +98,7 @@ java:
   readinessDelay: 30
   livenessDelay: 30
   devApplicationInsightsInstrumentKeyName: AZURE_APPLICATIONINSIGHTS_INSTRUMENTATIONKEY
+
+#nodejs Overrides
 nodejs: 
   devApplicationInsightsInstrumentKeyName: APPINSIGHTS_INSTRUMENTATIONKEY
