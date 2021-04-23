@@ -1,0 +1,43 @@
+language: java
+replicas: 2
+useInterpodAntiAffinity: true
+imagePullPolicy: Always
+environment:
+  REFORM_TEAM: cnp
+  REFORM_SERVICE_NAME: rhubarb-backend
+  REFORM_ENVIRONMENT: preview
+  CONFIG_TEMPLATE: "{{ .Release.Name }}-config"
+  BOOLEAN_EXAMPLE: false
+configmap:
+  VAR_A: VALUE_A
+  VAR_B: VALUE_B
+secrets:
+  CONNECTION_STRING:
+    secretRef: some-secret-reference
+    key: connectionString
+    disabled: true
+prometheus:
+  enabled: true
+keyVaults:
+  "cmc":
+    excludeEnvironmentSuffix: false
+    secrets:
+      - smoke-test-citizen-username
+      - smoke-test-user-password
+      - os-postcode-lookup-api-key
+      - AppInsightsInstrumentationKey
+      - citizen-oauth-client-secret
+      - citizen-draft-store-primary
+      - citizen-cookie-encryption-key
+global: 
+  enableKeyVaults: true
+
+java:
+  applicationPort: 4550
+  #Adding mandatory fields to here to ensure the merge is working as expected.
+  image: hmctspublic.azurecr.io/spring-boot/template
+  ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
+  aadIdentityName: money-claims
+  global: 
+    tenantId: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
+    environment: aat  

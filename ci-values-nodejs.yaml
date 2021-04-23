@@ -1,0 +1,30 @@
+language: nodejs
+global:
+  enableKeyVaults: true
+replicas: 2
+useInterpodAntiAffinity: true
+imagePullPolicy: Always
+environment:
+  REFORM_TEAM: cnp
+  REFORM_SERVICE_NAME: rhubarb-frontend
+  REFORM_ENVIRONMENT: preview
+configmap:
+  VAR_A: VALUE_A
+  VAR_B: VALUE_B
+keyVaults:
+  bulk-scan:
+    excludeEnvironmentSuffix: false
+    secrets:
+      - idam-client-secret
+      - s2s-secret
+additionalPathBasedRoutes:
+  "/test": "{{.Release.Name}}"
+
+nodejs:
+  aadIdentityName: bsp
+  image: hmctspublic.azurecr.io/chart-nodejs/testapp
+  ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
+  global: 
+    tenantId: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
+    environment: aat
+  
