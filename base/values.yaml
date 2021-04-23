@@ -1,4 +1,3 @@
-language: default
 applicationPort: 3000
 replicas: 1
 useInterpodAntiAffinity: true
