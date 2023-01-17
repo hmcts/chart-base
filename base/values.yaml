@@ -60,6 +60,10 @@ ingressSessionAffinity:
 #
 autoscaling:
   enabled: false
+  cpu:
+    averageUtilization: 80
+  memory:
+    averageUtilization: 80
 
 postgresql:
   image:
