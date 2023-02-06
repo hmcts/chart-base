@@ -3,7 +3,7 @@ replicas: 1
 useInterpodAntiAffinity: true
 registerAdditionalDns:
   enabled: false
-memoryRequests: 64Mi
+memoryRequests: 512Mi
 cpuRequests: 25m
 memoryLimits: 512Mi
 cpuLimits: 500m
@@ -61,8 +61,10 @@ ingressSessionAffinity:
 autoscaling:
   enabled: false
   cpu:
+    enabled: true
     averageUtilization: 80
   memory:
+    enabled: true
     averageUtilization: 80
 
 postgresql:
@@ -99,7 +101,7 @@ functionaltestscron:
 
 #java Overrides
 java:
-  memoryRequests: '512Mi'
+  memoryRequests: '1024Mi'
   cpuRequests: '250m'
   memoryLimits: '2048Mi'
   cpuLimits: '1500m'
