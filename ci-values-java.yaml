@@ -35,7 +35,7 @@ global:
 java:
   applicationPort: 4550
   #Adding mandatory fields to here to ensure the merge is working as expected.
-  image: hmctspublic.azurecr.io/plum/recipe-backend:latest
+  image: hmctspublic.azurecr.io/rpe/pdf-service:latest
   ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
   aadIdentityName: money-claims
   global: 
