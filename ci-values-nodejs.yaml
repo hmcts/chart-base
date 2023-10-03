@@ -12,11 +12,10 @@ configmap:
   VAR_A: VALUE_A
   VAR_B: VALUE_B
 keyVaults:
-  bulk-scan:
+  "plumsi":
     excludeEnvironmentSuffix: false
     secrets:
-      - idam-client-secret
-      - s2s-secret
+      - test-secret
 additionalPathBasedRoutes:
   "/test": "{{.Release.Name}}"
 

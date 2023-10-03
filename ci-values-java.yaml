@@ -19,16 +19,10 @@ secrets:
 prometheus:
   enabled: true
 keyVaults:
-  "cmc":
+  "plumsi":
     excludeEnvironmentSuffix: false
     secrets:
-      - smoke-test-citizen-username
-      - smoke-test-user-password
-      - os-postcode-lookup-api-key
-      - AppInsightsInstrumentationKey
-      - citizen-oauth-client-secret
-      - citizen-draft-store-primary
-      - citizen-cookie-encryption-key
+      - test-secret
 global: 
   enableKeyVaults: true
 
