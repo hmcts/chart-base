@@ -10,7 +10,7 @@ pr:
 
 resources:
   repositories:
-    - repository: cnp-library
+    - repository: cnp-azuredevops-libraries
       type: github
       ref: refs/heads/master
       name: hmcts/cnp-azuredevops-libraries
@@ -32,7 +32,7 @@ jobs:
           language: nodejs
 
     steps:
-      - template: steps/charts/validate.yaml@cnp-library
+      - template: steps/charts/validate.yaml@cnp-azuredevops-libraries
         parameters:
           chartName: base
           chartReleaseName: chart-base-$(language)-ci-test
@@ -52,7 +52,7 @@ jobs:
     pool:
       vmImage: ${{ variables.agentPool }}
     steps:
-      - template: steps/charts/release.yaml@cnp-library
+      - template: steps/charts/release.yaml@cnp-azuredevops-libraries
         parameters:
           chartName: base
           chartReleaseName: chart-base
