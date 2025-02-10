@@ -17,7 +17,7 @@ icon: https://cncf-branding.netlify.app/img/projects/helm/horizontal/color/helm-
 dependencies:
   - name: library
     version: 2.2.2
-    repository: https://hmctspublic.azurecr.io/helm/v1/repo/
+    repository: oci://hmctspublic.azurecr.io/helm
   - name: postgresql
     version: 13.2.24
     repository: https://charts.bitnami.com/bitnami
