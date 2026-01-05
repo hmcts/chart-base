@@ -21,7 +21,7 @@ additionalPathBasedRoutes:
 
 nodejs:
   aadIdentityName: bsp
-  image: hmctspublic.azurecr.io/chart-nodejs/testapp
+  image: hmctsprod.azurecr.io/chart-nodejs/testapp
   ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
   global: 
     tenantId: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"

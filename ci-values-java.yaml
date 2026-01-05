@@ -29,7 +29,7 @@ global:
 java:
   applicationPort: 5500
   #Adding mandatory fields to here to ensure the merge is working as expected.
-  image: hmctspublic.azurecr.io/rpe/pdf-service:latest
+  image: hmctsprod.azurecr.io/rpe/pdf-service:latest
   ingressHost: "{{.Release.Name}}.service.core-compute-preview.internal"
   aadIdentityName: money-claims
   global: 
