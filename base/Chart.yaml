@@ -3,7 +3,7 @@ description: Base Helm chart for HMCTS Apps
 name: base
 # This is the chart version. This doesn't need to be incremented on every change.
 # It is managed by release pipeline based on Github tag
-version: 0.1.0 # Do not change
+version: 0.1.1
 appVersion: 0.1.0 # Do not change
 keywords:
   - base
@@ -19,6 +19,6 @@ dependencies:
     version: 2.2.2
     repository: oci://hmctsprod.azurecr.io/helm
   - name: postgresql
-    version: 13.2.24
+    version: 13.4.6
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: postgresql.enabled
