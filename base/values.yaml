@@ -20,6 +20,8 @@ livenessDelay: 0
 livenessTimeout: 3
 livenessPeriod: 15
 livenessFailureThreshold: 3
+spotInstances:
+  enabled: false
 startupPath: /health/liveness
 startupDelay: 5
 startupTimeout: 3
@@ -57,10 +59,11 @@ ingressSessionAffinity:
 # autoscaling:
 #  enabled: true
 #  maxReplicas: 5
+#  minReplicas: 2
 #  targetCPUUtilizationPercentage: 80
-#
+
 autoscaling:
-  enabled: false
+  enabled: true
   cpu:
     enabled: true
     averageUtilization: 80
@@ -70,6 +73,8 @@ autoscaling:
 
 postgresql:
   image:
+    registry: hmctspublic.azurecr.io
+    repository: imported/bitnami/postgresql
     tag: '11.16.0'
   ## Whether to deploy the Postgres Chart or not
   enabled: false
